@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/nav.astro";
+import {ViewTransitions} from 'astro:transitions'
 ---
 
 <html lang="en">
@@ -9,6 +10,7 @@ import Nav from "../components/nav.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Podium</title>
+    <ViewTransitions />
   </head>
   <body class="py-4 px-8 bg-[#F9F7F2] lora">
     <Nav />
