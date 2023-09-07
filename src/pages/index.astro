@@ -3,5 +3,35 @@ import Main from "../layouts/main.astro";
 ---
 
 <Main>
-  <img src="/line.svg" alt="wip placeholder" />
+  <div class="mb-4 flex justify-between">
+    <span>---</span>
+    <span>---</span>
+    <span>---</span>
+    <span>---</span>
+    <span>---</span>
+  </div>
+  <div class="flex justify-center">
+    <img
+      src="/podium-script-big.svg"
+      alt="wip placeholder"
+      class="my-8 sm:max-w-lg"
+    />
+  </div>
+  <div class="flex justify-center">
+    <h1 class="text-3xl lora font-thin mt-6">
+      Currently Training for the Big Day...
+    </h1>
+  </div>
+  <!-- <h2 class="text-xl ibm-mono font-thin">coming soon</h2> -->
 </Main>
+<style>
+  .lora {
+    font-family: "Lora", serif;
+  }
+  .red-hat {
+    font-family: "Red Hat Display Variable", sans-serif;
+  }
+  .ibm-mono {
+    font-family: "IBM Plex Mono", sans-serif;
+  }
+</style>

@@ -1,19 +1,31 @@
 ---
 import Nav from "../components/nav.astro";
-import {ViewTransitions} from 'astro:transitions'
+import { ViewTransitions } from "astro:transitions";
+import "@fontsource/ibm-plex-mono";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/short-flag.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Podium</title>
     <ViewTransitions />
   </head>
-  <body class="py-4 px-8 bg-[#F9F7F2] lora">
+  <body class="px-2 bg-[#F9F7F2] lora">
     <Nav />
     <slot />
+    <style>
+      .lora {
+        font-family: "Lora", serif;
+      }
+      .red-hat {
+        font-family: "Red Hat Display Variable", sans-serif;
+      }
+      .ibm-mono {
+        font-family: "IBM Plex Mono", sans-serif;
+      }
+    </style>
   </body>
 </html>
