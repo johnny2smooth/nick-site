@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# google sheets secrets
+secrets.json
+
 # dependencies
 node_modules/
 
