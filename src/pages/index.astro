@@ -1,64 +1,21 @@
 ---
 import Main from "../layouts/main.astro";
-// import { google } from "googleapis";
-// import credentials from "../../secrets.json";
-
-// const jwtClient = new google.auth.JWT(
-//   credentials.client_email,
-//   undefined,
-//   credentials.private_key,
-//   ["https://www.googleapis.com/auth/spreadsheets"]
-// );
-// const spreadsheetId = import.meta.env.SHEET_ID;
-
-// // Function to append data to the Google Sheet
-// async function appendData() {
-//   try {
-//     await jwtClient.authorize();
-//     const sheetsAPI = google.sheets({ version: "v4", auth: jwtClient });
-
-//     // Append the data to the Google Sheet
-//     const range = `Sheet1!A:C`;
-//     const result = await sheetsAPI.spreadsheets.values.append({
-//       spreadsheetId,
-//       range,
-//       valueInputOption: "RAW",
-//       requestBody: {
-//         values: [["date", "email"]],
-//       },
-//     });
-//     if (result.status === 200) {
-//       console.log("form submitted okay!");
-//     }
-//   } catch (error) {
-//     console.error("Error appending data:", error);
-//   }
-// }
-// appendData();
+import { appendData } from "../utils/google-form";
+import Newsletter from "../components/newsletter.astro";
+if (Astro.request.method === "POST") {
+  try {
+    let data = await Astro.request.formData();
+    let email = data.get("email")?.toString();
+    let submitted = await appendData(email);
+    if (submitted) {
+      return Astro.redirect("/events");
+    }
+  } catch (error) {}
+}
 ---
 
 <Main>
-  <div class="mb-4 flex justify-between">
-    <span>---</span>
-    <span>---</span>
-    <span>---</span>
-    <span>---</span>
-    <span>---</span>
-  </div>
-  <div class="flex justify-center">
-    <h1 class="text-3xl red-hat font-extralight">
-      Currently Training for the Big Day...
-    </h1>
-  </div>
-  <div class="flex justify-center">
-    <img
-      src="/squiggly.svg"
-      alt="wip placeholder"
-      class="my-8 sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl"
-    />
-  </div>
-
-  <!-- <h2 class="text-xl ibm-mono font-thin">coming soon</h2> -->
+  <Newsletter />
 </Main>
 <style>
   .lora {
@@ -69,21 +26,5 @@ import Main from "../layouts/main.astro";
   }
   .ibm-mono {
     font-family: "IBM Plex Mono", sans-serif;
-  }
-  .modern-gradient {
-    background-image: radial-gradient(
-      farthest-corner circle at 50% 50% in oklab,
-      oklab(80% -0.3 -0.27) 0%,
-      52%,
-      oklab(35% 0.34 -0.37) 100%
-    );
-  }
-  .classic-gradient {
-    background-image: radial-gradient(
-      farthest-corner circle at 50% 50%,
-      #00dfff 0%,
-      52%,
-      #8c00ec 100%
-    );
   }
 </style>

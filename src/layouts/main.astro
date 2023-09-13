@@ -15,7 +15,27 @@ import "@fontsource/ibm-plex-mono";
   </head>
   <body class="px-2 bg-[#F9F7F2] lora">
     <Nav />
+    <div class="mb-1 flex justify-between">
+      <span>---</span>
+      <address class="red-hat font-thin">
+        114 4th Ave N, Edmonds, WA 98020
+      </address>
+      <span>---</span>
+    </div>
+    <div class="flex justify-center">
+      <h1 class="text-sm red-hat font-extralight">
+        Currently Training for the Big Day...
+      </h1>
+    </div>
+    <div class="flex justify-center">
+      <img
+        src="/squiggly.svg"
+        alt="wip placeholder"
+        class="my-2 sm:max-w-lg md:max-w-2xl lg:max-w-3xl"
+      />
+    </div>
     <slot />
+    <div class="mb-24"></div>
     <style>
       .lora {
         font-family: "Lora", serif;
