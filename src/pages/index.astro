@@ -8,7 +8,7 @@ if (Astro.request.method === "POST") {
     let email = data.get("email")?.toString();
     let submitted = await appendData(email);
     if (submitted) {
-      return Astro.redirect("/events");
+      return Astro.redirect("/thank-you");
     }
   } catch (error) {}
 }
